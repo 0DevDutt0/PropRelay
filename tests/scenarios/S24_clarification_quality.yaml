@@ -1,0 +1,23 @@
+id: "S24"
+name: "Clarification on Missing Renter Name"
+description: "User asks to book without providing renter name, prompting safe clarification"
+category: "clarification"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot-101-01."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: ""
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "IDLE"
+    is_clarification: true
+expected_tool_calls:
+  - "book_showing"
+expected_state: "IDLE"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

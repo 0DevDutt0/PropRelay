@@ -1,0 +1,25 @@
+id: "S18"
+name: "Unavailable Slot Rejection"
+description: "User attempts to book an occupied or unavailable showing slot"
+category: "safety"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot slot-101-03 for Alex."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-03"
+      renter_name: "Alex"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "BOOKING_FAILED"
+expected_tool_calls:
+  - "book_showing"
+expected_state: "BOOKING_FAILED"
+expected_events:
+  - "showing.booking.rejected"
+  - "agent.tool.failed"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

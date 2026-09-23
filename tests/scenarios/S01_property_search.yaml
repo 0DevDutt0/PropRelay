@@ -1,0 +1,23 @@
+id: "S01"
+name: "Property Search"
+description: "User searches for a two bedroom apartment under $3000"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Find a two bedroom apartment under $3000."
+    action: "search_properties"
+    params:
+      bedrooms: 2
+      max_rent: 3000
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+expected_tool_calls:
+  - "search_properties"
+expected_state: "REVIEWING_RESULTS"
+expected_events:
+  - "agent.tool.started"
+  - "property.search.completed"
+  - "agent.tool.completed"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

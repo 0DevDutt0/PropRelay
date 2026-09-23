@@ -1,0 +1,31 @@
+id: "S14"
+name: "Correction"
+description: "User modifies search criteria mid-conversation and context updates cleanly"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Find a 1 bedroom apartment under $2000."
+    action: "search_properties"
+    params:
+      bedrooms: 1
+      max_rent: 2000
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Actually, change that to a 2 bedroom under $3000."
+    action: "search_properties"
+    params:
+      bedrooms: 2
+      max_rent: 3000
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+expected_tool_calls:
+  - "search_properties"
+  - "search_properties"
+expected_state: "REVIEWING_RESULTS"
+expected_events:
+  - "property.search.completed"
+  - "property.search.completed"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

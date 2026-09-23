@@ -1,0 +1,55 @@
+{
+  "project": "PropRelay",
+  "version": "0.8.0",
+  "app_profile": "development",
+  "built_at": "2026-09-23T13:20:00.112859+00:00",
+  "git_commit": "uncommitted/unknown",
+  "runtime": {
+    "python_version": "3.12.10",
+    "python_implementation": "CPython",
+    "os": "Windows",
+    "os_release": "11",
+    "os_version": "10.0.26200",
+    "architecture": "AMD64"
+  },
+  "neural_models": {
+    "stt": {
+      "name": "faster-whisper-base.en",
+      "framework": "CTranslate2 (int8 CPU / float16 CUDA)",
+      "source": "Systran/faster-whisper-base.en",
+      "license": "MIT",
+      "local_only": true
+    },
+    "llm": {
+      "name": "qwen2.5:7b",
+      "framework": "Ollama (llama.cpp GGUF 4-bit quant)",
+      "source": "Qwen/Qwen2.5-3B-Instruct",
+      "license": "Apache-2.0",
+      "local_only": true
+    },
+    "tts": {
+      "name": "Kokoro-82M",
+      "framework": "ONNX Runtime (82M params fp32/fp16)",
+      "source": "hexgrad/Kokoro-82M",
+      "license": "Apache-2.0",
+      "local_only": true
+    }
+  },
+  "installed_dependencies": {
+    "livekit": "1.1.18",
+    "livekit-agents": "1.8.2",
+    "fastapi": "0.141.1",
+    "uvicorn": "0.53.0",
+    "pydantic": "2.13.5",
+    "faster-whisper": "1.2.1",
+    "ollama": "not_installed",
+    "kokoro-onnx": "0.6.1",
+    "sounddevice": "0.5.6",
+    "numpy": "2.5.3",
+    "rich": "15.0.0",
+    "pytest": "9.1.1",
+    "ruff": "0.16.8",
+    "mypy": "2.3.1",
+    "bandit": "1.9.4"
+  }
+}

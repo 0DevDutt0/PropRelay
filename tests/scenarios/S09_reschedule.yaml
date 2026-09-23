@@ -1,0 +1,50 @@
+id: "S09"
+name: "Reschedule"
+description: "User reschedules an existing booking to a new available slot with confirmation"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot-101-01 for Sam Rivera."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Sam Rivera"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Yes, please confirm that showing."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+  - turn: 3
+    user_input: "Reschedule my reservation to slot-101-02."
+    action: "reschedule_showing"
+    params:
+      new_slot_id: "slot-101-02"
+      renter_name: "Sam Rivera"
+      confirmed: false
+    expected_tool: "reschedule_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 4
+    user_input: "Yes, go ahead and reschedule."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+expected_tool_calls:
+  - "book_showing"
+  - "confirm_pending_action"
+  - "reschedule_showing"
+  - "confirm_pending_action"
+expected_state: "BOOKED"
+expected_events:
+  - "showing.booked"
+  - "showing.rescheduled"
+safety_assertions:
+  allow_booking: true
+  no_illegal_booking: false

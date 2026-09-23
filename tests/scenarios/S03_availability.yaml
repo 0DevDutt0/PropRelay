@@ -1,0 +1,38 @@
+id: "S03"
+name: "Availability"
+description: "User asks for showing times for the selected property"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Search for apartments in Downtown."
+    action: "search_properties"
+    params:
+      location: "Downtown"
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Tell me about the first one."
+    action: "get_property_details"
+    params:
+      property_id: "the first one"
+    expected_tool: "get_property_details"
+    expected_state: "PROPERTY_SELECTED"
+  - turn: 3
+    user_input: "Can I see it Saturday afternoon?"
+    action: "get_available_showings"
+    params:
+      property_id: ""
+    expected_tool: "get_available_showings"
+    expected_state: "CHECKING_AVAILABILITY"
+expected_tool_calls:
+  - "search_properties"
+  - "get_property_details"
+  - "get_available_showings"
+expected_state: "CHECKING_AVAILABILITY"
+expected_events:
+  - "property.search.completed"
+  - "property.details.viewed"
+  - "showing.availability.checked"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

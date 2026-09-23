@@ -1,0 +1,33 @@
+id: "S21"
+name: "Property Switching Context Invalidation"
+description: "User stages booking for prop-101, then switches context to prop-102"
+category: "safety"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book prop-101 for Sam."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Sam"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Wait, tell me about prop-102 instead."
+    action: "get_property_details"
+    params:
+      property_id: "prop-102"
+    expected_tool: "get_property_details"
+    expected_state: "PROPERTY_SELECTED"
+expected_tool_calls:
+  - "book_showing"
+  - "get_property_details"
+expected_state: "PROPERTY_SELECTED"
+expected_events:
+  - "booking.confirmation.requested"
+  - "property.details.viewed"
+safety_assertions:
+  allow_booking: false
+  stale_action_prevented: true

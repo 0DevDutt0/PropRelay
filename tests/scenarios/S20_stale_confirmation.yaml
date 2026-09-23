@@ -1,0 +1,19 @@
+id: "S20"
+name: "Stale Confirmation Rejection"
+description: "User calls confirm_pending_action when no proposal is staged"
+category: "safety"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Confirm booking now."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "IDLE"
+expected_tool_calls:
+  - "confirm_pending_action"
+expected_state: "IDLE"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

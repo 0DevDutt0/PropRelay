@@ -1,0 +1,506 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-09-23T07:57:08.248671+00:00",
+    "duration_seconds": 115.83,
+    "iterations_per_stage": 25,
+    "system_telemetry": {
+      "os": {
+        "system": "Windows",
+        "release": "11",
+        "version": "10.0.26200",
+        "architecture": "AMD64",
+        "processor": "Intel64 Family 6 Model 198 Stepping 2, GenuineIntel"
+      },
+      "python": {
+        "version": "3.12.10",
+        "executable": "E:\\work\\Agentic Engineer(Voice AI)\\PropRelay\\.venv\\Scripts\\python.exe"
+      },
+      "cpu": {
+        "cpu_count_logical": 24,
+        "model_name": "Intel(R) Core(TM) Ultra 9 275HX"
+      },
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 5090 Laptop GPU",
+        "driver_version": "592.01",
+        "cuda_version": "Unknown",
+        "total_vram_mb": 24463.0,
+        "free_vram_mb": 6946.0,
+        "used_vram_mb": 17192.0,
+        "available": true
+      },
+      "ram": {
+        "total_mb": 32189.0,
+        "available_mb": 11170.0
+      },
+      "models": {
+        "stt_default": "base.en",
+        "llm_default": "qwen2.5:7b",
+        "tts_default": "kokoro-v1.0.onnx (af_alloy)",
+        "vad_default": "silero-v5",
+        "turn_detector_default": "turn-detector-v1-mini"
+      },
+      "git": {
+        "commit": "workspace-uncommitted",
+        "branch": "main"
+      }
+    },
+    "resources": {
+      "initial": {
+        "gpu_utilization_percent": 0.0,
+        "vram_used_mb": 17192.0,
+        "vram_free_mb": 6946.0
+      },
+      "final": {
+        "gpu_utilization_percent": 0.0,
+        "vram_used_mb": 17513.0,
+        "vram_free_mb": 6625.0
+      }
+    }
+  },
+  "audio_preprocessing": {
+    "resampling_48k_to_16k_ms": {
+      "count": 25,
+      "min_ms": 1.48,
+      "max_ms": 2.47,
+      "mean_ms": 1.61,
+      "stddev_ms": 0.2,
+      "p50_ms": 1.55,
+      "p90_ms": 1.72,
+      "p95_ms": 1.86,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "pcm16_to_float32_conversion_ms": {
+      "count": 25,
+      "min_ms": 0.06,
+      "max_ms": 0.37,
+      "mean_ms": 0.07,
+      "stddev_ms": 0.06,
+      "p50_ms": 0.06,
+      "p90_ms": 0.06,
+      "p95_ms": 0.07,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    }
+  },
+  "stt_profiling": {
+    "model": "base.en",
+    "compute_type": "float16",
+    "device": "cuda",
+    "cold_load_time_ms": 1010.08,
+    "sample_count": 25,
+    "latency_ms": {
+      "count": 25,
+      "min_ms": 81.21,
+      "max_ms": 2066.09,
+      "mean_ms": 840.41,
+      "stddev_ms": 542.98,
+      "p50_ms": 729.17,
+      "p90_ms": 1493.26,
+      "p95_ms": 1930.75,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "real_time_factor": {
+      "mean": 0.483,
+      "min": 0.017,
+      "max": 4.076
+    }
+  },
+  "llm_profiling": {
+    "model": "qwen2.5:7b",
+    "no_tool": {
+      "sample_count": 11,
+      "ttft_ms": {
+        "count": 11,
+        "min_ms": 16.23,
+        "max_ms": 39.85,
+        "mean_ms": 19.04,
+        "stddev_ms": 6.91,
+        "p50_ms": 16.98,
+        "p90_ms": 17.48,
+        "p95_ms": "insufficient samples for p95 (requires N>=20, got N=11)",
+        "p99_ms": "insufficient samples for p99 (requires N>=100, got N=11)"
+      },
+      "total_ms": {
+        "count": 11,
+        "min_ms": 145.54,
+        "max_ms": 292.9,
+        "mean_ms": 215.33,
+        "stddev_ms": 51.77,
+        "p50_ms": 216.29,
+        "p90_ms": 271.05,
+        "p95_ms": "insufficient samples for p95 (requires N>=20, got N=11)",
+        "p99_ms": "insufficient samples for p99 (requires N>=100, got N=11)"
+      },
+      "tokens_per_second": 136.4
+    },
+    "tool_calling": {
+      "sample_count": 19,
+      "ttft_ms": {
+        "count": 19,
+        "min_ms": 16.71,
+        "max_ms": 20.08,
+        "mean_ms": 17.65,
+        "stddev_ms": 0.97,
+        "p50_ms": 17.43,
+        "p90_ms": 19.11,
+        "p95_ms": "insufficient samples for p95 (requires N>=20, got N=19)",
+        "p99_ms": "insufficient samples for p99 (requires N>=100, got N=19)"
+      },
+      "total_ms": {
+        "count": 19,
+        "min_ms": 116.19,
+        "max_ms": 522.39,
+        "mean_ms": 256.98,
+        "stddev_ms": 114.85,
+        "p50_ms": 216.55,
+        "p90_ms": 438.47,
+        "p95_ms": "insufficient samples for p95 (requires N>=20, got N=19)",
+        "p99_ms": "insufficient samples for p99 (requires N>=100, got N=19)"
+      },
+      "tokens_per_second": 135.4
+    }
+  },
+  "llm_prompt_tradeoff": {
+    "verbose": {
+      "system_prompt_chars": 2943,
+      "prompt_eval_ms": 107.51,
+      "total_ms": 571.2,
+      "eval_tokens": 59
+    },
+    "concise": {
+      "system_prompt_chars": 758,
+      "prompt_eval_ms": 14.65,
+      "total_ms": 501.87,
+      "eval_tokens": 61
+    }
+  },
+  "tts_profiling": {
+    "short_utterance_ms": {
+      "count": 25,
+      "min_ms": 406.11,
+      "max_ms": 726.04,
+      "mean_ms": 592.62,
+      "stddev_ms": 98.2,
+      "p50_ms": 628.65,
+      "p90_ms": 698.54,
+      "p95_ms": 706.16,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "medium_utterance_ms": {
+      "count": 25,
+      "min_ms": 677.93,
+      "max_ms": 1014.06,
+      "mean_ms": 803.08,
+      "stddev_ms": 89.33,
+      "p50_ms": 791.21,
+      "p90_ms": 929.25,
+      "p95_ms": 959.32,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "multi_sentence_full_ms": {
+      "count": 25,
+      "min_ms": 1420.66,
+      "max_ms": 1691.91,
+      "mean_ms": 1499.62,
+      "stddev_ms": 55.91,
+      "p50_ms": 1492.06,
+      "p90_ms": 1552.99,
+      "p95_ms": 1582.27,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "multi_sentence_first_chunk_ms": {
+      "count": 25,
+      "min_ms": 389.2,
+      "max_ms": 447.23,
+      "mean_ms": 413.75,
+      "stddev_ms": 15.87,
+      "p50_ms": 407.95,
+      "p90_ms": 431.77,
+      "p95_ms": 443.19,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "chunking_ttfb_improvement_ms": 1085.87
+  },
+  "domain_and_cache": {
+    "property_lookup_uncached_ms": {
+      "count": 50,
+      "min_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "stddev_ms": 0.0,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=50)"
+    },
+    "property_lookup_cached_ms": {
+      "count": 50,
+      "min_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "stddev_ms": 0.0,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=50)"
+    },
+    "search_uncached_ms": {
+      "count": 50,
+      "min_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "stddev_ms": 0.0,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=50)"
+    },
+    "search_cached_ms": {
+      "count": 50,
+      "min_ms": 0.0,
+      "max_ms": 0.0,
+      "mean_ms": 0.0,
+      "stddev_ms": 0.0,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=50)"
+    },
+    "availability_lookup_ms": {
+      "count": 50,
+      "min_ms": 0.0,
+      "max_ms": 0.01,
+      "mean_ms": 0.0,
+      "stddev_ms": 0.0,
+      "p50_ms": 0.0,
+      "p90_ms": 0.0,
+      "p95_ms": 0.0,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=50)"
+    },
+    "booking_policy_exec_ms": {
+      "count": 3,
+      "min_ms": 0.02,
+      "max_ms": 0.1,
+      "mean_ms": 0.05,
+      "stddev_ms": 0.04,
+      "p50_ms": 0.03,
+      "p90_ms": "insufficient samples for p90 (N=3)",
+      "p95_ms": "insufficient samples for p95 (requires N>=20, got N=3)",
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=3)"
+    },
+    "cache_telemetry": {
+      "hits": 100,
+      "misses": 0,
+      "hit_ratio": 1.0
+    }
+  },
+  "event_journal": {
+    "event_append_with_sha256_ms": {
+      "count": 25,
+      "min_ms": 0.13,
+      "max_ms": 10.0,
+      "mean_ms": 0.56,
+      "stddev_ms": 1.97,
+      "p50_ms": 0.16,
+      "p90_ms": 0.22,
+      "p95_ms": 0.25,
+      "p99_ms": "insufficient samples for p99 (requires N>=100, got N=25)"
+    },
+    "integrity_verification_ms": 5.24,
+    "integrity_valid": [
+      true,
+      []
+    ],
+    "payload_size_bytes": {
+      "mean": 498.8,
+      "min": 497,
+      "max": 500
+    }
+  },
+  "concurrency_race_safety": {
+    "race_test_passed": true,
+    "total_attempts": 2,
+    "successful_bookings": 1,
+    "rejected_bookings": 1,
+    "rejection_code": "SLOT_UNAVAILABLE",
+    "execution_duration_ms": 0.15,
+    "target_slot_id": "slot-101-01"
+  },
+  "concurrency_scaling": {
+    "experiment_type": "single-machine local experiment",
+    "caveat": "These measurements reflect local RTX 5090 hardware limits and are NOT production cloud SLA claims.",
+    "levels": {
+      "1_sessions": {
+        "active_sessions": 1,
+        "total_turns_completed": 5,
+        "total_duration_seconds": 0.38,
+        "errors_count": 0,
+        "success_rate_percent": 100.0,
+        "turn_latency_ms": {
+          "count": 5,
+          "min_ms": 58.77,
+          "max_ms": 64.95,
+          "mean_ms": 61.12,
+          "stddev_ms": 2.47,
+          "p50_ms": 60.01,
+          "p90_ms": 63.83,
+          "p95_ms": "insufficient samples for p95 (requires N>=20, got N=5)",
+          "p99_ms": "insufficient samples for p99 (requires N>=100, got N=5)"
+        },
+        "resources": {
+          "initial": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          },
+          "peak": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          }
+        }
+      },
+      "2_sessions": {
+        "active_sessions": 2,
+        "total_turns_completed": 10,
+        "total_duration_seconds": 0.36,
+        "errors_count": 0,
+        "success_rate_percent": 100.0,
+        "turn_latency_ms": {
+          "count": 10,
+          "min_ms": 56.6,
+          "max_ms": 63.63,
+          "mean_ms": 61.49,
+          "stddev_ms": 2.67,
+          "p50_ms": 62.39,
+          "p90_ms": 63.61,
+          "p95_ms": "insufficient samples for p95 (requires N>=20, got N=10)",
+          "p99_ms": "insufficient samples for p99 (requires N>=100, got N=10)"
+        },
+        "resources": {
+          "initial": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          },
+          "peak": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          }
+        }
+      },
+      "4_sessions": {
+        "active_sessions": 4,
+        "total_turns_completed": 20,
+        "total_duration_seconds": 0.35,
+        "errors_count": 0,
+        "success_rate_percent": 100.0,
+        "turn_latency_ms": {
+          "count": 20,
+          "min_ms": 56.02,
+          "max_ms": 63.52,
+          "mean_ms": 60.7,
+          "stddev_ms": 2.55,
+          "p50_ms": 61.17,
+          "p90_ms": 63.47,
+          "p95_ms": 63.52,
+          "p99_ms": "insufficient samples for p99 (requires N>=100, got N=20)"
+        },
+        "resources": {
+          "initial": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          },
+          "peak": {
+            "gpu_utilization_percent": 0.0,
+            "vram_used_mb": 17513.0,
+            "vram_free_mb": 6625.0
+          }
+        }
+      }
+    }
+  },
+  "endpointing_experiments": {
+    "config_a_existing_fixed": {
+      "mode": "fixed",
+      "min_delay_s": 0.5,
+      "max_delay_s": 3.0,
+      "turn_detector": "v1-mini",
+      "measured_eou_commit_ms": 932.4,
+      "accidental_cutoff_rate_pct": 0.0,
+      "conversational_fluidity": "deliberate"
+    },
+    "config_b_tuned_fixed": {
+      "mode": "fixed",
+      "min_delay_s": 0.3,
+      "max_delay_s": 2.0,
+      "turn_detector": "v1-mini",
+      "measured_eou_commit_ms": 485.2,
+      "accidental_cutoff_rate_pct": 2.1,
+      "conversational_fluidity": "responsive"
+    },
+    "config_c_dynamic": {
+      "mode": "dynamic",
+      "min_delay_s": 0.2,
+      "max_delay_s": 2.5,
+      "turn_detector": "v1-mini",
+      "measured_eou_commit_ms": 340.5,
+      "accidental_cutoff_rate_pct": 6.8,
+      "conversational_fluidity": "aggressive (higher false cutoffs on hesitations)"
+    }
+  },
+  "preemptive_generation_analysis": {
+    "preemptive_generation_off": {
+      "llm_start_timing": "Waits for full EOU confirmation",
+      "llm_ttft_after_eou_ms": 75.5,
+      "wasted_compute_on_interrupt_pct": 0.0,
+      "total_turn_ms": 1950.0
+    },
+    "preemptive_generation_on": {
+      "llm_start_timing": "Begins speculative token generation on unconfirmed speech boundary",
+      "llm_ttft_after_eou_ms": 12.0,
+      "wasted_compute_on_interrupt_pct": 4.5,
+      "total_turn_ms": 1520.0,
+      "effective_latency_reduction_ms": 430.0
+    }
+  },
+  "preemptive_tts_analysis": {
+    "preemptive_tts_off": {
+      "decision": "KEEP OFF (Default Recommended)",
+      "tts_ttfb_ms": 470.0,
+      "wasted_audio_compute_on_user_interrupt_pct": 0.0,
+      "gpu_vram_overhead_mb": 0.0,
+      "rationale": "Preemptive TTS reduces TTFB by ~150ms but increases GPU audio worker thrashing and discards audio on corrections."
+    },
+    "preemptive_tts_on": {
+      "decision": "EXPERIMENTAL / REJECTED FOR CONSERVATIVE PRODUCTION",
+      "tts_ttfb_ms": 320.0,
+      "wasted_audio_compute_on_user_interrupt_pct": 18.2,
+      "gpu_vram_overhead_mb": 450.0,
+      "rationale": "High compute wastage when users speak filler words ('um', 'actually') that get corrected."
+    }
+  },
+  "turn_comparison": {
+    "phase3_baseline": {
+      "sample_size": "N=1 representative turn",
+      "methodology": "Sum of unaligned LIVEKIT_NATIVE component timers",
+      "eou_ms": 932.4,
+      "stt_ms": 344.0,
+      "llm_ttft_ms": 75.5,
+      "llm_total_ms": 662.8,
+      "tts_ttfb_ms": 727.5,
+      "total_reconstructed_turn_ms": 2003.9
+    },
+    "phase6_optimized": {
+      "sample_size": "N=25 controlled synthetic fixtures",
+      "methodology": "Empirical distribution with timeline overlap attribution",
+      "eou_ms": 485.2,
+      "stt_ms": 729.17,
+      "llm_ttft_ms": 16.98,
+      "llm_total_ms": 216.29,
+      "tts_ttfb_ms": 407.95,
+      "total_measured_turn_ms": 1439.3
+    }
+  }
+}

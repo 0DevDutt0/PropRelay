@@ -1,0 +1,23 @@
+id: "S22"
+name: "Past Date Booking Rejection"
+description: "User attempts to reserve a slot on a date in the past"
+category: "safety"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book showing for yesterday."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      expected_date: "2025-01-01"
+      renter_name: "Past Renter"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "IDLE"
+expected_tool_calls:
+  - "book_showing"
+expected_state: "IDLE"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

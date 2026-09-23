@@ -1,0 +1,90 @@
+[project]
+name = "proprelay"
+version = "0.8.0"
+description = "Deterministic Domain Engine, Event Journal & Typed Tool Foundation for PropRelay Voice Agent"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "MIT" }
+authors = [
+    { name = "PropRelay Engineering Team" }
+]
+dependencies = [
+    "pydantic>=2.10.0,<3.0.0",
+    "livekit-api>=1.2.1,<2.0.0",
+    "python-dotenv>=1.0.0,<2.0.0",
+    "livekit-agents>=1.8.0,<1.9.0",
+    "livekit-plugins-openai>=1.8.0,<1.9.0",
+    "livekit-plugins-silero>=1.8.0,<1.9.0",
+    "faster-whisper>=1.1.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "kokoro-onnx>=0.6.0",
+    "soundfile>=0.12.0",
+    "livekit-plugins-turn-detector>=1.8.2",
+    "pyyaml>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.9.0",
+    "mypy>=1.14.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra -q"
+markers = [
+    "integration: marks integration tests that probe running local services",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [".agents", ".venv", "bin", "node_modules", "frontend"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+plugins = ["pydantic.mypy"]
+
+[[tool.mypy.overrides]]
+module = [
+    "livekit.*",
+    "ctranslate2.*",
+    "faster_whisper.*",
+    "kokoro_onnx.*",
+    "soundfile.*",
+    "yaml.*",
+    "torch.*",
+]
+ignore_missing_imports = true
+
+[[tool.mypy.overrides]]
+module = "tests.*"
+disallow_untyped_defs = false
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.4",
+    "detect-secrets>=1.5.0",
+    "pip-audit>=2.10.1",
+]
+
+[tool.bandit]
+skips = ["B110", "B603", "B607", "B404"]

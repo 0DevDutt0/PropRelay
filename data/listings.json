@@ -1,0 +1,124 @@
+[
+  {
+    "property_id": "prop-101",
+    "title": "The Solaris Loft - Downtown Modern Living",
+    "address": "404 Pine Avenue, Apt 4B",
+    "city": "Metropolis",
+    "neighborhood": "Downtown",
+    "monthly_rent": 2850,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1150,
+    "pets_allowed": true,
+    "amenities": [
+      "In-unit Washer/Dryer",
+      "Rooftop Deck",
+      "Fitness Center",
+      "EV Charging",
+      "Central HVAC"
+    ],
+    "description": "Fictional Demo Property: Sun-drenched 2-bedroom corner loft with industrial concrete accents, 12-foot exposed ceilings, and designer quartz kitchen island.",
+    "supports_showings": true
+  },
+  {
+    "property_id": "prop-102",
+    "title": "Parkview Terrace Garden Flat",
+    "address": "812 Elmwood Boulevard, Unit 201",
+    "city": "Metropolis",
+    "neighborhood": "Westside",
+    "monthly_rent": 1950,
+    "bedrooms": 1,
+    "bathrooms": 1.0,
+    "square_feet": 720,
+    "pets_allowed": false,
+    "amenities": [
+      "Private Balcony",
+      "Hardwood Floors",
+      "Secure Keyless Entry",
+      "Dishwasher"
+    ],
+    "description": "Fictional Demo Property: Charming 1-bedroom flat overlooking Westside Memorial Park with polished hardwood floors and updated stainless steel appliances.",
+    "supports_showings": true
+  },
+  {
+    "property_id": "prop-103",
+    "title": "The Meridian Sky Penthouse",
+    "address": "100 Grand Boulevard, Penthouse 3",
+    "city": "Metropolis",
+    "neighborhood": "Downtown",
+    "monthly_rent": 4600,
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "square_feet": 1850,
+    "pets_allowed": true,
+    "amenities": [
+      "Direct Private Elevator Access",
+      "360-degree Panoramic City Views",
+      "Dual Primary Suites",
+      "Built-in Wine Cooler",
+      "24/7 Concierge"
+    ],
+    "description": "Fictional Demo Property: Ultra-luxury 3-bedroom penthouse featuring direct elevator access, dual wraparound terraces, and premium Wolf/Sub-Zero culinary appliances.",
+    "supports_showings": true
+  },
+  {
+    "property_id": "prop-104",
+    "title": "Pinecrest Garden Duplex",
+    "address": "2244 North Hills Road",
+    "city": "Metropolis",
+    "neighborhood": "North Hills",
+    "monthly_rent": 2200,
+    "bedrooms": 2,
+    "bathrooms": 1.5,
+    "square_feet": 1020,
+    "pets_allowed": true,
+    "amenities": [
+      "Private Fenced Backyard",
+      "Attached Single-car Garage",
+      "Dedicated Basement Storage",
+      "Dog Run"
+    ],
+    "description": "Fictional Demo Property: Quiet 2-bedroom duplex in North Hills featuring a fully fenced private yard ideal for dogs, attached garage, and quiet residential neighborhood.",
+    "supports_showings": true
+  },
+  {
+    "property_id": "prop-105",
+    "title": "Belmont Studio Micro-Suites",
+    "address": "550 University Way, Suite 109",
+    "city": "Metropolis",
+    "neighborhood": "University District",
+    "monthly_rent": 1400,
+    "bedrooms": 0,
+    "bathrooms": 1.0,
+    "square_feet": 480,
+    "pets_allowed": false,
+    "amenities": [
+      "Semi-furnished",
+      "High-speed 1Gbps Fiber Included",
+      "Secure Bike Storage Room",
+      "Community Co-working Lounge"
+    ],
+    "description": "Fictional Demo Property: Efficient studio micro-suite tailored for students or remote workers. Includes murphy bed system, high-speed fiber internet, and bike room.",
+    "supports_showings": true
+  },
+  {
+    "property_id": "prop-106",
+    "title": "Harborstone Waterfront Residence",
+    "address": "1200 Marina Boulevard, Residence 510",
+    "city": "Metropolis",
+    "neighborhood": "Marina Bay",
+    "monthly_rent": 3200,
+    "bedrooms": 2,
+    "bathrooms": 2.0,
+    "square_feet": 1280,
+    "pets_allowed": false,
+    "amenities": [
+      "Marina Waterfront Views",
+      "Heated Swimming Pool",
+      "Underground Reserved Parking",
+      "Private Sauna"
+    ],
+    "description": "Fictional Demo Property: Waterfront 2-bedroom residence currently undergoing private renovation. Showings temporarily disabled.",
+    "supports_showings": false
+  }
+]

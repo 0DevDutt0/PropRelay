@@ -1,0 +1,58 @@
+id: "S04"
+name: "Booking Happy Path"
+description: "User stages a showing proposal and confirms it with explicit confirmation"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Search for apartments in Downtown."
+    action: "search_properties"
+    params:
+      location: "Downtown"
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Select the first property."
+    action: "get_property_details"
+    params:
+      property_id: "the first one"
+    expected_tool: "get_property_details"
+    expected_state: "PROPERTY_SELECTED"
+  - turn: 3
+    user_input: "What times are available?"
+    action: "get_available_showings"
+    params:
+      property_id: ""
+    expected_tool: "get_available_showings"
+    expected_state: "CHECKING_AVAILABILITY"
+  - turn: 4
+    user_input: "Book the 10 AM showing for Alex Smith."
+    action: "book_showing"
+    params:
+      property_id: ""
+      slot_id: "slot-101-01"
+      renter_name: "Alex Smith"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 5
+    user_input: "Yes, please confirm the reservation."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+expected_tool_calls:
+  - "search_properties"
+  - "get_property_details"
+  - "get_available_showings"
+  - "book_showing"
+  - "confirm_pending_action"
+expected_state: "BOOKED"
+expected_events:
+  - "booking.confirmation.requested"
+  - "booking.confirmation.accepted"
+  - "showing.booked"
+safety_assertions:
+  allow_booking: true
+  no_illegal_booking: false
+  require_confirmation: true

@@ -1,0 +1,42 @@
+id: "S11"
+name: "Duplicate Booking"
+description: "Identical booking request repeated results in idempotent success"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot-101-01 for Fox Mulder."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Fox Mulder"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Yes, please confirm the booking."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+  - turn: 3
+    user_input: "Book slot-101-01 for Fox Mulder again."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Fox Mulder"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "BOOKED"
+expected_tool_calls:
+  - "book_showing"
+  - "confirm_pending_action"
+  - "book_showing"
+expected_state: "BOOKED"
+expected_events:
+  - "showing.booked"
+safety_assertions:
+  allow_booking: true
+  idempotent_duplicate: true

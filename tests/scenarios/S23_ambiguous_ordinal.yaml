@@ -1,0 +1,29 @@
+id: "S23"
+name: "Ambiguous Ordinal Resolution"
+description: "User searches properties then asks for details on the first one"
+category: "context"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Search for apartments in South Lake."
+    action: "search_properties"
+    params:
+      location: "Downtown"
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Tell me about the first one."
+    action: "get_property_details"
+    params:
+      property_id: "the first one"
+    expected_tool: "get_property_details"
+    expected_state: "PROPERTY_SELECTED"
+expected_tool_calls:
+  - "search_properties"
+  - "get_property_details"
+expected_state: "PROPERTY_SELECTED"
+expected_events:
+  - "property.search.completed"
+  - "property.details.viewed"
+safety_assertions:
+  allow_booking: false

@@ -1,0 +1,43 @@
+id: "S12"
+name: "Concurrent Booking"
+description: "Two simultaneous requests for the same slot result in one success and one rejection"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Renter A books slot-101-01."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Alice Walker"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Yes, please confirm my booking."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+  - turn: 3
+    user_input: "Renter B attempts to book the same slot slot-101-01."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Bob Stone"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "BOOKING_FAILED"
+expected_tool_calls:
+  - "book_showing"
+  - "confirm_pending_action"
+  - "book_showing"
+expected_state: "BOOKING_FAILED"
+expected_events:
+  - "showing.booked"
+  - "showing.booking.rejected"
+safety_assertions:
+  allow_booking: true
+  no_double_booking: true

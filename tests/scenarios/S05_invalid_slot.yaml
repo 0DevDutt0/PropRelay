@@ -1,0 +1,32 @@
+id: "S05"
+name: "Invalid Slot"
+description: "User attempts to reserve a showing slot that is already booked"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Search for Downtown apartments."
+    action: "search_properties"
+    params:
+      location: "Downtown"
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Book the already booked showing slot slot-101-03."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-03"
+      renter_name: "Alex Smith"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "BOOKING_FAILED"
+expected_tool_calls:
+  - "search_properties"
+  - "book_showing"
+expected_state: "BOOKING_FAILED"
+expected_events:
+  - "agent.tool.started"
+  - "agent.tool.failed"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true

@@ -1,0 +1,44 @@
+id: "S25"
+name: "Speech Correction During Booking Flow"
+description: "User inspects slot-101-01 then corrects to slot-101-02 before confirming"
+category: "recovery"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot-101-01 for Taylor."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Taylor"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Actually make that slot-101-02."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-02"
+      renter_name: "Taylor"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 3
+    user_input: "Yes please confirm."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+expected_tool_calls:
+  - "book_showing"
+  - "book_showing"
+  - "confirm_pending_action"
+expected_state: "BOOKED"
+expected_events:
+  - "booking.confirmation.requested"
+  - "showing.booked"
+safety_assertions:
+  allow_booking: true
+  no_illegal_booking: false

@@ -1,0 +1,55 @@
+# Virtual Environment
+.venv/
+env/
+venv/
+
+# Environment Variables & Secrets
+.env
+.env.local
+*.env
+
+# Python bytecode and cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.uv/
+
+# Local Binaries (never commit executable binaries or model weights)
+bin/*
+!bin/.gitkeep
+
+# Event Journal, Metrics, and Runtime Databases
+data/*.jsonl
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+*.log
+scratch/
+
+# Test failure dumps and temporary outputs
+reports/evaluation/failures/
+*.tmp
+*.bak
+*.swp
+
+# Node & Frontend Build Artifacts
+node_modules/
+dist/
+frontend/dist/
+.vite/
+
+# Operating System Files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Agent skills and workspace customizations
+.agents/
+
+# Local brag/portfolio output
+brag-output/

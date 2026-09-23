@@ -1,0 +1,50 @@
+id: "S10"
+name: "Cancellation"
+description: "User cancels an existing booking with explicit confirmation"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Book slot-101-01 for Dana Scully."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Dana Scully"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 2
+    user_input: "Yes, please confirm that reservation."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "BOOKED"
+  - turn: 3
+    user_input: "Cancel my showing reservation."
+    action: "cancel_showing"
+    params:
+      renter_name: "Dana Scully"
+      reason: "Schedule conflict"
+      confirmed: false
+    expected_tool: "cancel_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 4
+    user_input: "Yes, please proceed with the cancellation."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "IDLE"
+expected_tool_calls:
+  - "book_showing"
+  - "confirm_pending_action"
+  - "cancel_showing"
+  - "confirm_pending_action"
+expected_state: "IDLE"
+expected_events:
+  - "showing.booked"
+  - "showing.cancelled"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: false

@@ -1,0 +1,212 @@
+[
+  {
+    "id": "UTT-01",
+    "text": "Hello.",
+    "category": "short",
+    "expected_intent": "greeting",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-02",
+    "text": "Yes, please confirm that.",
+    "category": "short",
+    "expected_intent": "confirm",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-03",
+    "text": "Sunday at two PM.",
+    "category": "short",
+    "expected_intent": "time_selection",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-04",
+    "text": "Thank you for the help.",
+    "category": "short",
+    "expected_intent": "farewell",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-05",
+    "text": "That sounds good to me.",
+    "category": "short",
+    "expected_intent": "affirmation",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-06",
+    "text": "Find a two bedroom apartment under three thousand dollars.",
+    "category": "medium",
+    "expected_intent": "search",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-07",
+    "text": "Tell me more about the first one.",
+    "category": "medium",
+    "expected_intent": "detail",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-08",
+    "text": "What showings are available Saturday?",
+    "category": "medium",
+    "expected_intent": "availability",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-09",
+    "text": "Is parking included with this listing?",
+    "category": "medium",
+    "expected_intent": "inquiry",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-10",
+    "text": "Book the two PM showing for Sarah Jenkins.",
+    "category": "medium",
+    "expected_intent": "booking_proposal",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-11",
+    "text": "I am looking for a modern pet friendly apartment in Downtown with parking and at least two bedrooms under four thousand dollars.",
+    "category": "long",
+    "expected_intent": "search",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-12",
+    "text": "Could you give me the full details including square footage, pet policy, deposit amount, and available move in dates for the Grandview?",
+    "category": "long",
+    "expected_intent": "detail",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-13",
+    "text": "I need to reschedule my existing appointment from Saturday afternoon to Sunday anytime between one PM and four PM.",
+    "category": "long",
+    "expected_intent": "reschedule",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-14",
+    "text": "Can you check both the Skyline Tower and the Grandview to see which one has an earlier tour available this weekend?",
+    "category": "long",
+    "expected_intent": "comparison",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-15",
+    "text": "Please cancel my showing for tomorrow afternoon because my schedule changed and I can no longer make it.",
+    "category": "long",
+    "expected_intent": "cancel",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-16",
+    "text": "Search for apartments in Downtown under twenty five hundred.",
+    "category": "tool_call",
+    "expected_intent": "search",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-17",
+    "text": "What are the showing slots for property prop-101?",
+    "category": "tool_call",
+    "expected_intent": "availability",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-18",
+    "text": "Book the Saturday ten AM slot for Michael Chang at michael@example.com.",
+    "category": "tool_call",
+    "expected_intent": "booking_proposal",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-19",
+    "text": "Reschedule my booking book-201 to the two PM slot.",
+    "category": "tool_call",
+    "expected_intent": "reschedule",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-20",
+    "text": "Cancel booking book-201 because of a work conflict.",
+    "category": "tool_call",
+    "expected_intent": "cancel",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-21",
+    "text": "What is PropRelay and how do you help renters find properties?",
+    "category": "no_tool",
+    "expected_intent": "general_faq",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-22",
+    "text": "Can you repeat what you just said?",
+    "category": "no_tool",
+    "expected_intent": "clarification",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-23",
+    "text": "Who is the leasing company managing these buildings?",
+    "category": "no_tool",
+    "expected_intent": "general_faq",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-24",
+    "text": "Goodbye and have a nice day.",
+    "category": "no_tool",
+    "expected_intent": "farewell",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-25",
+    "text": "I'm looking for a place to rent.",
+    "category": "clarification",
+    "expected_intent": "search_unspecified",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-26",
+    "text": "Show me the available times.",
+    "category": "clarification",
+    "expected_intent": "availability_unspecified",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-27",
+    "text": "Can I visit one of them?",
+    "category": "clarification",
+    "expected_intent": "tour_inquiry",
+    "has_tool": false
+  },
+  {
+    "id": "UTT-28",
+    "text": "Actually, use Sunday instead of Saturday.",
+    "category": "correction",
+    "expected_intent": "date_correction",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-29",
+    "text": "No, don't book that, I changed my mind.",
+    "category": "correction",
+    "expected_intent": "rejection",
+    "has_tool": true
+  },
+  {
+    "id": "UTT-30",
+    "text": "Wait, I said two bedrooms not one bedroom.",
+    "category": "correction",
+    "expected_intent": "filter_correction",
+    "has_tool": true
+  }
+]

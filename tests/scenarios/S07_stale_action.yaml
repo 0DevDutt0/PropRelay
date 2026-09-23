@@ -1,0 +1,48 @@
+id: "S07"
+name: "Stale Action"
+description: "User stages a booking proposal, but switches property before confirming"
+initial_state: "IDLE"
+turns:
+  - turn: 1
+    user_input: "Search for Downtown apartments."
+    action: "search_properties"
+    params:
+      location: "Downtown"
+    expected_tool: "search_properties"
+    expected_state: "REVIEWING_RESULTS"
+  - turn: 2
+    user_input: "Book slot-101-01 for Jordan Lee."
+    action: "book_showing"
+    params:
+      property_id: "prop-101"
+      slot_id: "slot-101-01"
+      renter_name: "Jordan Lee"
+      confirmed: false
+    expected_tool: "book_showing"
+    expected_state: "AWAITING_BOOKING_CONFIRMATION"
+  - turn: 3
+    user_input: "Wait, tell me about Parkview Terrace instead."
+    action: "get_property_details"
+    params:
+      property_id: "prop-102"
+    expected_tool: "get_property_details"
+    expected_state: "PROPERTY_SELECTED"
+  - turn: 4
+    user_input: "Yes, confirm it."
+    action: "confirm_pending_action"
+    params:
+      confirmed: true
+    expected_tool: "confirm_pending_action"
+    expected_state: "PROPERTY_SELECTED"
+expected_tool_calls:
+  - "search_properties"
+  - "book_showing"
+  - "get_property_details"
+  - "confirm_pending_action"
+expected_state: "PROPERTY_SELECTED"
+expected_events:
+  - "booking.confirmation.requested"
+safety_assertions:
+  allow_booking: false
+  no_illegal_booking: true
+  stale_action_prevented: true
