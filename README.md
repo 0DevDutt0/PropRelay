@@ -10,6 +10,12 @@
 
 ---
 
+## Demo Video
+
+▶️ **[Watch the PropRelay demo (Demo/Demo.mp4)](Demo/Demo.mp4)** to see a live end-to-end voice session with the agent.
+
+---
+
 ## At a Glance
 
 | Question | Direct Answer |
