@@ -6,9 +6,9 @@
 
 <p align="center"><b>▶️ <a href="Demo/Demo.mp4">Click the banner to watch the demo</a></b></p>
 
-# PropRelay — Local-First Real-Time Property Voice Agent
+# Local-First Real-Time Property Voice Agent
 
-> A local-first, real-time property voice agent built with LiveKit, Faster-Whisper, Ollama Qwen 2.5, Kokoro TTS, and deterministic domain services—where the LLM handles natural language intent, but application policy strictly controls consequential state mutations.
+> Built with LiveKit, Faster-Whisper, Ollama Qwen 2.5, Kokoro TTS, and deterministic domain services—where the LLM handles natural language intent, but application policy strictly controls consequential state mutations.
 
 [![Release Gate](https://img.shields.io/badge/Release_Gate-READY-brightgreen)](file:///E:/work/Agentic%20Engineer%28Voice%20AI%29/PropRelay/reports/evaluation/release_gate.md)
 [![Unit & Invariant Tests](https://img.shields.io/badge/Unit_Tests-193%2F193_Passing-brightgreen)](file:///E:/work/Agentic%20Engineer%28Voice%20AI%29/PropRelay/tests/)
