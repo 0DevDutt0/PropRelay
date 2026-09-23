@@ -1,3 +1,11 @@
+<p align="center">
+  <a href="Demo/Demo.mp4" title="Watch the PropRelay demo">
+    <img src="Demo/Thumbnail.png" alt="PropRelay: 100% local, $0 cloud cost, realtime voice AI. Click to watch the demo." width="100%">
+  </a>
+</p>
+
+<p align="center"><b>▶️ <a href="Demo/Demo.mp4">Click the banner to watch the demo</a></b></p>
+
 # PropRelay — Local-First Real-Time Property Voice Agent
 
 > A local-first, real-time property voice agent built with LiveKit, Faster-Whisper, Ollama Qwen 2.5, Kokoro TTS, and deterministic domain services—where the LLM handles natural language intent, but application policy strictly controls consequential state mutations.
@@ -7,12 +15,6 @@
 [![Behavioral Evaluation](https://img.shields.io/badge/Scenarios-25%2F25_Passing-brightgreen)](file:///E:/work/Agentic%20Engineer%28Voice%20AI%29/PropRelay/docs/EVALUATION.md)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](file:///E:/work/Agentic%20Engineer%28Voice%20AI%29/PropRelay/LICENSE)
 [![Local Cost](https://img.shields.io/badge/Recurring_Cost-$0%2Fmonth-blue)](file:///E:/work/Agentic%20Engineer%28Voice%20AI%29/PropRelay/docs/PORTFOLIO_CASE_STUDY.md)
-
----
-
-## Demo Video
-
-▶️ **[Watch the PropRelay demo (Demo/Demo.mp4)](Demo/Demo.mp4)** to see a live end-to-end voice session with the agent.
 
 ---
 
